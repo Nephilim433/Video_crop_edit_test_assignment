@@ -1,0 +1,497 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF12272329DEF436006FC3FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12272229DEF436006FC3FE /* AppDelegate.swift */; };
+		BF12272529DEF436006FC3FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12272429DEF436006FC3FE /* SceneDelegate.swift */; };
+		BF12272729DEF436006FC3FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12272629DEF436006FC3FE /* ViewController.swift */; };
+		BF12272A29DEF436006FC3FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF12272829DEF436006FC3FE /* Main.storyboard */; };
+		BF12272C29DEF438006FC3FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF12272B29DEF438006FC3FE /* Assets.xcassets */; };
+		BF12272F29DEF438006FC3FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF12272D29DEF438006FC3FE /* LaunchScreen.storyboard */; };
+		BF12273729DEF4B3006FC3FE /* VideoCropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12273629DEF4B3006FC3FE /* VideoCropViewController.swift */; };
+		BF12273E29DF37F2006FC3FE /* CropCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12273D29DF37F2006FC3FE /* CropCommand.swift */; };
+		BF12274029DF38F9006FC3FE /* VideoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12273F29DF38F8006FC3FE /* VideoEditor.swift */; };
+		BF12274F29DFFDE3006FC3FE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF12274E29DFFDE3006FC3FE /* Extensions.swift */; };
+		BF25C5D029E01FBC001731A8 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF25C5CF29E01FBB001731A8 /* PlayerView.swift */; };
+		BF25C5D529E0257D001731A8 /* VideoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF25C5D429E0257D001731A8 /* VideoScrollView.swift */; };
+		BFD4FC3629E3FD2A00BA9995 /* RatioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4FC3529E3FD2A00BA9995 /* RatioCollectionViewCell.swift */; };
+		BFD4FC3D29E7E36900BA9995 /* CropView .swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4FC3C29E7E36900BA9995 /* CropView .swift */; };
+		BFD4FC3F29E7FFC800BA9995 /* TrimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4FC3E29E7FFC800BA9995 /* TrimmerView.swift */; };
+		BFD4FC4129E7FFFA00BA9995 /* AVAssetTimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4FC4029E7FFFA00BA9995 /* AVAssetTimeSelector.swift */; };
+		BFD4FC4329E8004D00BA9995 /* AssetVideoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4FC4229E8004D00BA9995 /* AssetVideoScrollView.swift */; };
+		BFD4FC4529E8009400BA9995 /* HandlerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4FC4429E8009400BA9995 /* HandlerView.swift */; };
+		BFD4FC5029E87B5F00BA9995 /* RatioCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4FC4F29E87B5F00BA9995 /* RatioCellItem.swift */; };
+		BFD4FC5329E881C700BA9995 /* PlayerView+PanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4FC5229E881C700BA9995 /* PlayerView+PanGesture.swift */; };
+		BFD4FC5529E8824B00BA9995 /* PlayerView+RatioButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4FC5429E8824B00BA9995 /* PlayerView+RatioButtons.swift */; };
+		BFD4FC5729E8870300BA9995 /* VideoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD4FC5629E8870300BA9995 /* VideoData.swift */; };
+		BFD7455429E932E50054F09E /* ControlPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD7455329E932E50054F09E /* ControlPanel.swift */; };
+		BFD7455729E94B980054F09E /* video4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BFD7455629E94B980054F09E /* video4.mp4 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BF12271F29DEF436006FC3FE /* Video_crop_edit_test_assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Video_crop_edit_test_assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF12272229DEF436006FC3FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF12272429DEF436006FC3FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BF12272629DEF436006FC3FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF12272929DEF436006FC3FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF12272B29DEF438006FC3FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF12272E29DEF438006FC3FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF12273029DEF438006FC3FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF12273629DEF4B3006FC3FE /* VideoCropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCropViewController.swift; sourceTree = "<group>"; };
+		BF12273D29DF37F2006FC3FE /* CropCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropCommand.swift; sourceTree = "<group>"; };
+		BF12273F29DF38F8006FC3FE /* VideoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditor.swift; sourceTree = "<group>"; };
+		BF12274E29DFFDE3006FC3FE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BF25C5CF29E01FBB001731A8 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		BF25C5D429E0257D001731A8 /* VideoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoScrollView.swift; sourceTree = "<group>"; };
+		BFD4FC3529E3FD2A00BA9995 /* RatioCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCollectionViewCell.swift; sourceTree = "<group>"; };
+		BFD4FC3C29E7E36900BA9995 /* CropView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CropView .swift"; sourceTree = "<group>"; };
+		BFD4FC3E29E7FFC800BA9995 /* TrimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmerView.swift; sourceTree = "<group>"; };
+		BFD4FC4029E7FFFA00BA9995 /* AVAssetTimeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAssetTimeSelector.swift; sourceTree = "<group>"; };
+		BFD4FC4229E8004D00BA9995 /* AssetVideoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetVideoScrollView.swift; sourceTree = "<group>"; };
+		BFD4FC4429E8009400BA9995 /* HandlerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlerView.swift; sourceTree = "<group>"; };
+		BFD4FC4F29E87B5F00BA9995 /* RatioCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioCellItem.swift; sourceTree = "<group>"; };
+		BFD4FC5229E881C700BA9995 /* PlayerView+PanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerView+PanGesture.swift"; sourceTree = "<group>"; };
+		BFD4FC5429E8824B00BA9995 /* PlayerView+RatioButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerView+RatioButtons.swift"; sourceTree = "<group>"; };
+		BFD4FC5629E8870300BA9995 /* VideoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoData.swift; sourceTree = "<group>"; };
+		BFD7455329E932E50054F09E /* ControlPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanel.swift; sourceTree = "<group>"; };
+		BFD7455629E94B980054F09E /* video4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video4.mp4; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF12271C29DEF436006FC3FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF12271629DEF436006FC3FE = {
+			isa = PBXGroup;
+			children = (
+				BF12272129DEF436006FC3FE /* Video_crop_edit_test_assignment */,
+				BF12272029DEF436006FC3FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF12272029DEF436006FC3FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF12271F29DEF436006FC3FE /* Video_crop_edit_test_assignment.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF12272129DEF436006FC3FE /* Video_crop_edit_test_assignment */ = {
+			isa = PBXGroup;
+			children = (
+				BF12273029DEF438006FC3FE /* Info.plist */,
+				BF12272629DEF436006FC3FE /* ViewController.swift */,
+				BFD7455929E96D4D0054F09E /* VideoCropView */,
+				BFD4FC5129E8814A00BA9995 /* PlayerView */,
+				BF25C5DA29E066BD001731A8 /* Tools */,
+				BF395C2829E98C5000049B30 /* Support */,
+			);
+			path = Video_crop_edit_test_assignment;
+			sourceTree = "<group>";
+		};
+		BF25C5D329E02546001731A8 /* Trimmer */ = {
+			isa = PBXGroup;
+			children = (
+				BF25C5D429E0257D001731A8 /* VideoScrollView.swift */,
+				BFD4FC3E29E7FFC800BA9995 /* TrimmerView.swift */,
+				BFD4FC4429E8009400BA9995 /* HandlerView.swift */,
+				BFD4FC4229E8004D00BA9995 /* AssetVideoScrollView.swift */,
+				BFD4FC4029E7FFFA00BA9995 /* AVAssetTimeSelector.swift */,
+			);
+			path = Trimmer;
+			sourceTree = "<group>";
+		};
+		BF25C5DA29E066BD001731A8 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				BFD4FC5829E8884C00BA9995 /* Cropper */,
+				BF25C5D329E02546001731A8 /* Trimmer */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		BF395C2829E98C5000049B30 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				BF12272229DEF436006FC3FE /* AppDelegate.swift */,
+				BF12272429DEF436006FC3FE /* SceneDelegate.swift */,
+				BF12274E29DFFDE3006FC3FE /* Extensions.swift */,
+				BF395C2929E98C5800049B30 /* Storyboards */,
+				BF12272B29DEF438006FC3FE /* Assets.xcassets */,
+				BFD7455629E94B980054F09E /* video4.mp4 */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		BF395C2929E98C5800049B30 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BF12272829DEF436006FC3FE /* Main.storyboard */,
+				BF12272D29DEF438006FC3FE /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		BFD4FC5129E8814A00BA9995 /* PlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				BF25C5CF29E01FBB001731A8 /* PlayerView.swift */,
+				BFD4FC3C29E7E36900BA9995 /* CropView .swift */,
+				BFD4FC5229E881C700BA9995 /* PlayerView+PanGesture.swift */,
+				BFD4FC5429E8824B00BA9995 /* PlayerView+RatioButtons.swift */,
+			);
+			path = PlayerView;
+			sourceTree = "<group>";
+		};
+		BFD4FC5829E8884C00BA9995 /* Cropper */ = {
+			isa = PBXGroup;
+			children = (
+				BF12273F29DF38F8006FC3FE /* VideoEditor.swift */,
+				BFD4FC5629E8870300BA9995 /* VideoData.swift */,
+				BF12273D29DF37F2006FC3FE /* CropCommand.swift */,
+			);
+			path = Cropper;
+			sourceTree = "<group>";
+		};
+		BFD7455929E96D4D0054F09E /* VideoCropView */ = {
+			isa = PBXGroup;
+			children = (
+				BF12273629DEF4B3006FC3FE /* VideoCropViewController.swift */,
+				BFD7455329E932E50054F09E /* ControlPanel.swift */,
+				BFD4FC3529E3FD2A00BA9995 /* RatioCollectionViewCell.swift */,
+				BFD4FC4F29E87B5F00BA9995 /* RatioCellItem.swift */,
+			);
+			path = VideoCropView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF12271E29DEF436006FC3FE /* Video_crop_edit_test_assignment */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF12273329DEF438006FC3FE /* Build configuration list for PBXNativeTarget "Video_crop_edit_test_assignment" */;
+			buildPhases = (
+				BF12271B29DEF436006FC3FE /* Sources */,
+				BF12271C29DEF436006FC3FE /* Frameworks */,
+				BF12271D29DEF436006FC3FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Video_crop_edit_test_assignment;
+			packageProductDependencies = (
+			);
+			productName = Video_crop_edit_test_assignment;
+			productReference = BF12271F29DEF436006FC3FE /* Video_crop_edit_test_assignment.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF12271729DEF436006FC3FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					BF12271E29DEF436006FC3FE = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = BF12271A29DEF436006FC3FE /* Build configuration list for PBXProject "Video_crop_edit_test_assignment" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF12271629DEF436006FC3FE;
+			packageReferences = (
+			);
+			productRefGroup = BF12272029DEF436006FC3FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF12271E29DEF436006FC3FE /* Video_crop_edit_test_assignment */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF12271D29DEF436006FC3FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF12272F29DEF438006FC3FE /* LaunchScreen.storyboard in Resources */,
+				BF12272C29DEF438006FC3FE /* Assets.xcassets in Resources */,
+				BF12272A29DEF436006FC3FE /* Main.storyboard in Resources */,
+				BFD7455729E94B980054F09E /* video4.mp4 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF12271B29DEF436006FC3FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFD4FC5029E87B5F00BA9995 /* RatioCellItem.swift in Sources */,
+				BFD4FC4129E7FFFA00BA9995 /* AVAssetTimeSelector.swift in Sources */,
+				BFD4FC3629E3FD2A00BA9995 /* RatioCollectionViewCell.swift in Sources */,
+				BF25C5D029E01FBC001731A8 /* PlayerView.swift in Sources */,
+				BF12272729DEF436006FC3FE /* ViewController.swift in Sources */,
+				BFD4FC5529E8824B00BA9995 /* PlayerView+RatioButtons.swift in Sources */,
+				BFD7455429E932E50054F09E /* ControlPanel.swift in Sources */,
+				BFD4FC4529E8009400BA9995 /* HandlerView.swift in Sources */,
+				BFD4FC5329E881C700BA9995 /* PlayerView+PanGesture.swift in Sources */,
+				BFD4FC5729E8870300BA9995 /* VideoData.swift in Sources */,
+				BF12273E29DF37F2006FC3FE /* CropCommand.swift in Sources */,
+				BF25C5D529E0257D001731A8 /* VideoScrollView.swift in Sources */,
+				BF12272329DEF436006FC3FE /* AppDelegate.swift in Sources */,
+				BF12274029DF38F9006FC3FE /* VideoEditor.swift in Sources */,
+				BF12273729DEF4B3006FC3FE /* VideoCropViewController.swift in Sources */,
+				BFD4FC3D29E7E36900BA9995 /* CropView .swift in Sources */,
+				BF12272529DEF436006FC3FE /* SceneDelegate.swift in Sources */,
+				BFD4FC4329E8004D00BA9995 /* AssetVideoScrollView.swift in Sources */,
+				BF12274F29DFFDE3006FC3FE /* Extensions.swift in Sources */,
+				BFD4FC3F29E7FFC800BA9995 /* TrimmerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BF12272829DEF436006FC3FE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF12272929DEF436006FC3FE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF12272D29DEF438006FC3FE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF12272E29DEF438006FC3FE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF12273129DEF438006FC3FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF12273229DEF438006FC3FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF12273429DEF438006FC3FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N4M9R86A26;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Video_crop_edit_test_assignment/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me-try-home.Video-crop-edit-test-assignment";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF12273529DEF438006FC3FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N4M9R86A26;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Video_crop_edit_test_assignment/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me-try-home.Video-crop-edit-test-assignment";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF12271A29DEF436006FC3FE /* Build configuration list for PBXProject "Video_crop_edit_test_assignment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF12273129DEF438006FC3FE /* Debug */,
+				BF12273229DEF438006FC3FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF12273329DEF438006FC3FE /* Build configuration list for PBXNativeTarget "Video_crop_edit_test_assignment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF12273429DEF438006FC3FE /* Debug */,
+				BF12273529DEF438006FC3FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF12271729DEF436006FC3FE /* Project object */;
+}

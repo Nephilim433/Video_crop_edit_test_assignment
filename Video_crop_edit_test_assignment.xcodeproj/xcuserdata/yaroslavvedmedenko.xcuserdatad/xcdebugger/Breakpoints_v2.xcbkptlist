@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "125B422D-EAE6-45E0-8F98-D5EE9BE61A04"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C1699BD4-E7FB-47E5-AB4D-0E33C163B29B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Video_crop_edit_test_assignment/Tools/TrimCommand.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "C1699BD4-E7FB-47E5-AB4D-0E33C163B29B - 660dc501a75d9dde"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Video_crop_edit_test_assignment.TrimCommand.execute() -&gt; ()"
+                  moduleName = "Video_crop_edit_test_assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaroslavvedmedenko/Developer/my_projects/Video_crop_edit_test_assignment/Video_crop_edit_test_assignment/Tools/TrimCommand.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "648">
+               </Location>
+               <Location
+                  uuid = "C1699BD4-E7FB-47E5-AB4D-0E33C163B29B - 660dc501a75d9df9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Video_crop_edit_test_assignment.TrimCommand.execute() -&gt; ()"
+                  moduleName = "Video_crop_edit_test_assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaroslavvedmedenko/Developer/my_projects/Video_crop_edit_test_assignment/Video_crop_edit_test_assignment/Tools/TrimCommand.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "832">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E4CF1D7-2908-43DD-95EF-541A2C116444"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Video_crop_edit_test_assignment/Tools/TrimCommand.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "4E4CF1D7-2908-43DD-95EF-541A2C116444 - 660dc501a75d9b6d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Video_crop_edit_test_assignment.TrimCommand.execute() -&gt; ()"
+                  moduleName = "Video_crop_edit_test_assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaroslavvedmedenko/Developer/my_projects/Video_crop_edit_test_assignment/Video_crop_edit_test_assignment/Tools/TrimCommand.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "2060">
+               </Location>
+               <Location
+                  uuid = "4E4CF1D7-2908-43DD-95EF-541A2C116444 - 660dc501a75d9b8c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Video_crop_edit_test_assignment.TrimCommand.execute() -&gt; ()"
+                  moduleName = "Video_crop_edit_test_assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaroslavvedmedenko/Developer/my_projects/Video_crop_edit_test_assignment/Video_crop_edit_test_assignment/Tools/TrimCommand.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "2244">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3F78C01-E08E-4623-9D81-45C74988B1AB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Video_crop_edit_test_assignment/Tools/TrimCommand.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "A3F78C01-E08E-4623-9D81-45C74988B1AB - 660dc501a75d9942"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Video_crop_edit_test_assignment.TrimCommand.execute() -&gt; ()"
+                  moduleName = "Video_crop_edit_test_assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaroslavvedmedenko/Developer/my_projects/Video_crop_edit_test_assignment/Video_crop_edit_test_assignment/Tools/TrimCommand.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "3776">
+               </Location>
+               <Location
+                  uuid = "A3F78C01-E08E-4623-9D81-45C74988B1AB - 660dc501a75d999d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Video_crop_edit_test_assignment.TrimCommand.execute() -&gt; ()"
+                  moduleName = "Video_crop_edit_test_assignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaroslavvedmedenko/Developer/my_projects/Video_crop_edit_test_assignment/Video_crop_edit_test_assignment/Tools/TrimCommand.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "3960">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
