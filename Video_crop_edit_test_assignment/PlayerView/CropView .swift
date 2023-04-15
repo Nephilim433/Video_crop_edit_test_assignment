@@ -14,19 +14,19 @@ class CropView: UIView {
         let numberOfLines: CGFloat = 4.0
         let path = UIBezierPath()
         let xStep = rect.width / numberOfLines
-        for i in 1..<Int(numberOfLines) {
-            let x = CGFloat(i) * xStep
-            path.move(to: CGPoint(x: x, y: 0))
-            path.addLine(to: CGPoint(x: x, y: rect.height))
+        for index in 1..<Int(numberOfLines) {
+            let xPoint = CGFloat(index) * xStep
+            path.move(to: CGPoint(x: xPoint, y: 0))
+            path.addLine(to: CGPoint(x: xPoint, y: rect.height))
         }
-        
+
         let yStep = rect.height / numberOfLines
-        for i in 1..<Int(numberOfLines) {
-            let y = CGFloat(i) * yStep
-            path.move(to: CGPoint(x: 0, y: y))
-            path.addLine(to: CGPoint(x: rect.width, y: y))
+        for index in 1..<Int(numberOfLines) {
+            let yPoint = CGFloat(index) * yStep
+            path.move(to: CGPoint(x: 0, y: yPoint))
+            path.addLine(to: CGPoint(x: rect.width, y: yPoint))
         }
-        
+
         UIColor.white.setStroke()
         path.lineWidth = lineWidth
         path.stroke()

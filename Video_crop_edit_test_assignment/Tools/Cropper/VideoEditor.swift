@@ -5,13 +5,11 @@
 //  Created by Yaroslav Vedmedenko on 06.04.2023.
 //
 
-
 import AVFoundation
 import UIKit
 protocol VideoEditorCommandProtocol: NSObjectProtocol {
     func execute()
 }
-
 
 class VideoEditor {
     var videoData: VideoEditorData
@@ -20,52 +18,25 @@ class VideoEditor {
     var start: CMTime?
     var end: CMTime?
     var exportProgressBarTimer: Timer?
-    
+
     init(videoURL: URL) {
         let asset = AVURLAsset(url: videoURL)
         self.videoData = VideoEditorData(asset: asset)
         self.commands = []
-        
-    }
-    
-    func export(progressCallback: @escaping ((Float) -> Void), completion: @escaping (AVAssetExportSession)->Void) {
-        
-        export(presetName: AVAssetExportPresetHighestQuality, optimizeForNetworkUse: false, outputFileType: AVFileType.mov,progressCallback: progressCallback, completion: completion)
-    }
-    
-    func setTrimming(start: CMTime, end: CMTime) {
-        self.start = start
-        self.end = end
-    }
-    
-    func resetVideoData(videoURL: URL) {
-        let asset = AVURLAsset(url: videoURL)
-        self.videoData = VideoEditorData(asset: asset)
+
     }
 
-    func crop(cropFrame: CGRect, outputSize: CGSize) {
-        let command = CropCommand(videoData: videoData, cropFrame: cropFrame, outputSize: outputSize)
-        commands.append(command)
-    }
-    // MARK: Private
-    private func applyCommands() {
-        for item in commands {
-            if let command = item as? VideoEditorCommandProtocol {
-                command.execute()
-            }
-        }
-    }
-    
-    private func export(presetName: String, optimizeForNetworkUse: Bool, outputFileType: AVFileType, progressCallback: @escaping ((Float) -> Void), completion: @escaping (AVAssetExportSession)->Void) {
+    func export(progressCallback: @escaping ((Float) -> Void), completion: @escaping (AVAssetExportSession) -> Void) {
         applyCommands()
         if let videoDataComposition = videoData.composition?.copy() as? AVAsset {
-            exportSession = AVAssetExportSession(asset: videoDataComposition, presetName: presetName)
+            exportSession = AVAssetExportSession(asset: videoDataComposition,
+                                                 presetName: AVAssetExportPresetHighestQuality)
         }
         if let videoComposition = videoData.videoComposition {
             exportSession?.videoComposition = videoComposition
         }
         let exportURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("cropped-video.mp4")
-        
+
         if FileManager.default.isDeletableFile(atPath: exportURL.path) {
             do {
                 try FileManager.default.removeItem(atPath: exportURL.path)
@@ -73,12 +44,11 @@ class VideoEditor {
                 print("error removing file at path")
             }
         }
-        
-        exportSession?.outputFileType = outputFileType
+
+        exportSession?.outputFileType = AVFileType.mov
         exportSession?.outputURL = exportURL
         exportSession?.timeRange = CMTimeRange(start: start ?? CMTime.zero, end: end ?? videoData.asset.duration)
-        
-        
+
         exportProgressBarTimer = Timer()
         exportProgressBarTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _  in
             guard let strongSelf = self else { return }
@@ -89,8 +59,8 @@ class VideoEditor {
                 strongSelf.exportProgressBarTimer?.invalidate()
             }
         }
-        
-        exportSession?.shouldOptimizeForNetworkUse = optimizeForNetworkUse
+
+        exportSession?.shouldOptimizeForNetworkUse = true
         exportSession?.exportAsynchronously {
             DispatchQueue.main.async {
                 self.commands = []
@@ -99,7 +69,30 @@ class VideoEditor {
                 }
             }
         }
-        
-    }
-}
 
+    }
+    func setTrimming(start: CMTime, end: CMTime) {
+        self.start = start
+        self.end = end
+    }
+
+    func resetVideoData(videoURL: URL) {
+        let asset = AVURLAsset(url: videoURL)
+        self.videoData = VideoEditorData(asset: asset)
+    }
+
+    func crop(cropFrame: CGRect, outputSize: CGSize) {
+        let command = CropCommand(videoData: videoData, cropFrame: cropFrame, outputSize: outputSize)
+        commands.append(command)
+    }
+
+    // MARK: Private
+    private func applyCommands() {
+        for item in commands {
+            if let command = item as? VideoEditorCommandProtocol {
+                command.execute()
+            }
+        }
+    }
+
+}

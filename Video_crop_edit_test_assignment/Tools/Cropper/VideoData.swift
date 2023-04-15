@@ -25,7 +25,7 @@ class VideoEditorData: NSObject {
 
     }
 
-    func loadAsset(asset: AVAsset) -> Void {
+    func loadAsset(asset: AVAsset) {
         if asset.tracks(withMediaType: .video).count != 0 {
             assetVideoTrack = asset.tracks(withMediaType: .video).first
         }
@@ -47,20 +47,23 @@ class VideoEditorData: NSObject {
         videoComposition?.renderSize = videoSize
         let insertionPoint: CMTime = CMTime.zero
         if let assetVideoTrack = assetVideoTrack {
-            videoCompositionTrack = composition?.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
+            videoCompositionTrack = composition?.addMutableTrack(withMediaType: .video,
+                                                                 preferredTrackID: kCMPersistentTrackID_Invalid)
             do {
-                try videoCompositionTrack?.insertTimeRange(CMTimeRange(start: CMTime.zero, duration: asset.duration), of: assetVideoTrack, at: insertionPoint)
+                try videoCompositionTrack?.insertTimeRange(CMTimeRange(start: CMTime.zero, duration: asset.duration),
+                                                           of: assetVideoTrack, at: insertionPoint)
             } catch {
             }
         }
         if let assetAudioTrack = assetAudioTrack {
-            audioCompositionTrack = composition?.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+            audioCompositionTrack = composition?.addMutableTrack(withMediaType: .audio,
+                                                                 preferredTrackID: kCMPersistentTrackID_Invalid)
             do {
-                try audioCompositionTrack?.insertTimeRange(CMTimeRange(start: CMTime.zero, duration: asset.duration), of: assetAudioTrack, at: insertionPoint)
+                try audioCompositionTrack?.insertTimeRange(CMTimeRange(start: CMTime.zero, duration: asset.duration),
+                                                           of: assetAudioTrack, at: insertionPoint)
             } catch {
             }
         }
 
     }
 }
-

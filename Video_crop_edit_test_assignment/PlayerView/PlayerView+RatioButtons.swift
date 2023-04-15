@@ -1,7 +1,5 @@
-
-
 import UIKit
-//ratio buttons
+// ratio buttons
 extension PlayerView {
     func fullscreenSize() {
         guard let playerLayer = playerLayer else { return }
@@ -29,7 +27,7 @@ extension PlayerView {
     }
     func instagram() {
         guard let playerLayer = playerLayer else { return }
-        let size: CGFloat = min(playerLayer.frame.width,playerLayer.frame.height)
+        let size: CGFloat = min(playerLayer.frame.width, playerLayer.frame.height)
                     NSLayoutConstraint.deactivate(topBottomLeftRightConstraints)
                     NSLayoutConstraint.activate(widthHeightXYConstraints)
         UIView.animate(withDuration: 0.3) {
@@ -74,7 +72,7 @@ extension PlayerView {
             self.cropViewCenterYConstraint.constant = 0
             self.cropViewWidthAnchor.constant = cropSize.width
             self.cropViewHeightAnchor.constant = cropSize.height
-        
+
             if self.cropView.frame.size.width > playerLayer.frame.size.width {
                 self.cropViewWidthAnchor.constant = playerLayer.frame.size.width
                 self.cropViewHeightAnchor.constant = self.cropView.frame.size.width * cropRatio.height / cropRatio.width
@@ -90,7 +88,7 @@ extension PlayerView {
         guard let playerLayer = playerLayer else { return }
         let cropRatio = CGSize(width: 5, height: 4)
         let playerRatio = playerLayer.frame.size
-        
+
         // Calculate size of cropView based on the larger dimension
         var cropSize = CGSize(width: 0, height: 0)
         if cropRatio.width/cropRatio.height > playerRatio.width/playerRatio.height {
@@ -119,4 +117,3 @@ extension PlayerView {
         }
     }
 }
- 

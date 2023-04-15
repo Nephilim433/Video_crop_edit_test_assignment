@@ -5,7 +5,6 @@
 //  Created by Yaroslav Vedmedenko on 13.04.2023.
 //
 
-
 import AVFoundation
 import UIKit
 
@@ -74,7 +73,7 @@ class TrimmerView: AVAssetTimeSelector {
 
     private let handleWidth: CGFloat = 15
 
-    /// The minimum duration allowed for the trimming. The handles won't pan further if the minimum duration is attained.
+    /// The minimum duration allowed for the trimming.
     var minDuration: Double = 3
 
     // MARK: - View & constraints configurations
@@ -198,10 +197,11 @@ class TrimmerView: AVAssetTimeSelector {
     }
 
     private func setupGestures() {
-
-        let leftPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(TrimmerView.handlePanGesture))
+        let leftPanGestureRecognizer = UIPanGestureRecognizer(target: self,
+                                                              action: #selector(TrimmerView.handlePanGesture))
         leftHandleView.addGestureRecognizer(leftPanGestureRecognizer)
-        let rightPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(TrimmerView.handlePanGesture))
+        let rightPanGestureRecognizer = UIPanGestureRecognizer(target: self,
+                                                               action: #selector(TrimmerView.handlePanGesture))
         rightHandleView.addGestureRecognizer(rightPanGestureRecognizer)
     }
 
@@ -258,7 +258,8 @@ class TrimmerView: AVAssetTimeSelector {
     }
 
     private func updateRightConstraint(with translation: CGPoint) {
-        let maxConstraint = min(2 * handleWidth - frame.width + leftHandleView.frame.origin.x + minimumDistanceBetweenHandle, 0)
+        let newMin = 2 * handleWidth - frame.width + leftHandleView.frame.origin.x + minimumDistanceBetweenHandle
+        let maxConstraint = min(newMin, 0)
         let newConstraint = max(min(0, currentRightConstraint + translation.x), maxConstraint)
         rightConstraint?.constant = newConstraint
     }

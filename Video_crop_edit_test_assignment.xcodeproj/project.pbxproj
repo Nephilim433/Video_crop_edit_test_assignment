@@ -184,6 +184,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF12273329DEF438006FC3FE /* Build configuration list for PBXNativeTarget "Video_crop_edit_test_assignment" */;
 			buildPhases = (
+				BFB103B229EAD87B00A4469D /* ShellScript */,
 				BF12271B29DEF436006FC3FE /* Sources */,
 				BF12271C29DEF436006FC3FE /* Frameworks */,
 				BF12271D29DEF436006FC3FE /* Resources */,
@@ -247,6 +248,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BFB103B229EAD87B00A4469D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BF12271B29DEF436006FC3FE /* Sources */ = {

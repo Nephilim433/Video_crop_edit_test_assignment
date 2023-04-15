@@ -10,11 +10,11 @@ import AVKit
 
 class VideoCropViewController: UIViewController {
 
-    //MARK: - Properties
+    // MARK: - Properties
     private let videoURL: URL
     private var videoEditor: VideoEditor!
-    private var playerView : PlayerView!
-    private var trimmerView : TrimmerView!
+    private var playerView: PlayerView!
+    private var trimmerView: TrimmerView!
     private var controlPanel: ControlPanel!
     private var progressView = UIProgressView()
     private var spinner = UIActivityIndicatorView(style: .large)
@@ -27,14 +27,14 @@ class VideoCropViewController: UIViewController {
         button.addTarget(self, action: #selector(handleActionButton), for: .touchUpInside)
         return button
     }()
-    
-    //MARK: - Lifecycle
+
+    // MARK: - Lifecycle
     init(videoURL: URL) {
         self.videoURL = videoURL
         self.videoEditor = VideoEditor(videoURL: videoURL)
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
@@ -61,8 +61,8 @@ class VideoCropViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    //MARK: building UI
-    
+    // MARK: building UI
+
     func setupUI() {
         // Set up the control panel
         controlPanel = ControlPanel(videoCropVC: self)
@@ -75,9 +75,8 @@ class VideoCropViewController: UIViewController {
         // Set up the progress view
         setupProgressView()
     }
-    
-    
-    //MARK: Player
+
+    // MARK: Player
     func setupPlayer() {
         self.playerView = PlayerView(url: videoURL)
             guard let playerView = self.playerView else { return }
@@ -90,13 +89,13 @@ class VideoCropViewController: UIViewController {
                 playerView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
                 playerView.bottomAnchor.constraint(equalTo: self.playPauseButton.topAnchor)
             ])
-        
+
         playerView.freeSizeCallBack = { [weak self] in
             self?.controlPanel.freesizeSelected()
 
         }
     }
-    //MARK: Spinner
+    // MARK: Spinner
     func setupSpinner() {
         spinner.isHidden = true
         spinner.hidesWhenStopped = true
@@ -108,11 +107,11 @@ class VideoCropViewController: UIViewController {
                 spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
             ])
     }
-    //MARK: ProgressView
+    // MARK: ProgressView
     func setupProgressView() {
         progressView.progress = 0
         progressView.progressTintColor = .white
-        
+
         view.addSubview(progressView)
         progressView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -122,11 +121,9 @@ class VideoCropViewController: UIViewController {
         progressView.heightAnchor.constraint(equalToConstant: 4)
         ])
         progressView.isHidden = true
-        
-        
-        
+
     }
-    //MARK: Slider
+    // MARK: Slider
     private func setupSlider() {
         trimmerView = TrimmerView()
         trimmerView.isHidden = false
@@ -145,7 +142,7 @@ class VideoCropViewController: UIViewController {
             playPauseButton.leftAnchor.constraint(equalTo: view.leftAnchor),
             playPauseButton.heightAnchor.constraint(equalToConstant: 60),
             playPauseButton.widthAnchor.constraint(equalToConstant: 60),
-            
+
             trimmerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100),
             trimmerView.leftAnchor.constraint(equalTo: playPauseButton.rightAnchor),
             trimmerView.rightAnchor.constraint(equalTo: view.rightAnchor),
@@ -156,7 +153,8 @@ class VideoCropViewController: UIViewController {
 
     private func loopVideo() {
         guard let videoPlayer = playerView?.player else { return }
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { [weak self] notification in
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                               object: nil, queue: nil) { [weak self] _ in
             if let startTime = self?.trimmerView.startTime {
                 videoPlayer.seek(to: startTime)
                 videoPlayer.play()
@@ -166,39 +164,39 @@ class VideoCropViewController: UIViewController {
     // MARK: Timers
     private var playbackTimeCheckerTimer: Timer?
     private var trimmerPositionChangedTimer: Timer?
-    
+
     func startPlaybackTimeChecker() {
       stopPlaybackTimeChecker()
       playbackTimeCheckerTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self,
                                                       selector: #selector(self.onPlaybackTimeChecker),
                                                       userInfo: nil, repeats: true)
     }
-    
+
     func stopPlaybackTimeChecker() {
       playbackTimeCheckerTimer?.invalidate()
       playbackTimeCheckerTimer = nil
     }
-    
+
     @objc func onPlaybackTimeChecker() {
-        guard let startTime = trimmerView.startTime, let endTime = trimmerView.endTime, let player = self.playerView?.player else {
-        return
-      }
+        guard let startTime = trimmerView.startTime,
+              let endTime = trimmerView.endTime,
+              let player = self.playerView?.player else { return }
 
       let playBackTime = player.currentTime()
       trimmerView.seek(to: playBackTime)
-      
+
       if playBackTime >= endTime {
           player.seek(to: startTime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
         trimmerView.seek(to: startTime)
       }
     }
-    
-    //MARK: Actions
+
+    // MARK: Actions
     private enum Action {
         case pause
         case play
     }
-    
+
     @objc private func handleActionButton() {
         guard let player = playerView?.player else { return }
         if player.isPlaying {
@@ -208,30 +206,36 @@ class VideoCropViewController: UIViewController {
         }
     }
 
-    private func playerAction(_ action:Action) {
+    private func playerAction(_ action: Action) {
         guard let player = self.playerView?.player else { return }
         switch action {
         case .play:
             player.play()
-            playPauseButton.setImage(UIImage(systemName: "pause.fill", withConfiguration: UIImage.SymbolConfiguration.playPauseConfig), for: .normal)
+            playPauseButton.setImage(UIImage(systemName: "pause.fill",
+                                             withConfiguration: UIImage.SymbolConfiguration.playPauseConfig),
+                                     for: .normal)
             startPlaybackTimeChecker()
         case .pause:
             player.pause()
-            playPauseButton.setImage(UIImage(systemName: "play.fill", withConfiguration: UIImage.SymbolConfiguration.playPauseConfig), for: .normal)
+            playPauseButton.setImage(UIImage(systemName: "play.fill",
+                                             withConfiguration: UIImage.SymbolConfiguration.playPauseConfig),
+                                     for: .normal)
             stopPlaybackTimeChecker()
         }
     }
-    
+
     @objc func crop() {
         guard let playerView = playerView, let playerLayerFrame = playerView.playerLayer?.frame else { return }
-        
+
         // Convert the crop view's bounds to the player view's coordinate space and calculate the mask rect
         let playerLayerFrameInParent = playerView.convert(playerLayerFrame, to: playerView)
         let maskRect = playerView.cropView.convert(playerView.cropView.bounds, to: playerView)
             .intersection(playerLayerFrameInParent)
-            .applying(CGAffineTransform(translationX: -playerLayerFrameInParent.origin.x, y: -playerLayerFrameInParent.origin.y))
-        
-        guard let videoEditor = self.videoEditor, let startTime = trimmerView.startTime, let endTime = trimmerView.endTime else { return }
+            .applying(CGAffineTransform(translationX: -playerLayerFrameInParent.origin.x,
+                                        y: -playerLayerFrameInParent.origin.y))
+        guard let videoEditor = self.videoEditor,
+              let startTime = trimmerView.startTime,
+              let endTime = trimmerView.endTime else { return }
         videoEditor.setTrimming(start: startTime, end: endTime)
         videoEditor.crop(cropFrame: maskRect, outputSize: (playerView.playerLayer?.frame.size)!)
 
@@ -241,7 +245,7 @@ class VideoCropViewController: UIViewController {
         view.isUserInteractionEnabled = false
         navigationItem.rightBarButtonItem?.isEnabled = false
 
-        videoEditor.export() { [weak self] progress in
+        videoEditor.export { [weak self] progress in
             self?.progressView.progress = progress
         } completion: { [weak self] session in
             guard let strongSelf = self else { return }
@@ -254,11 +258,11 @@ class VideoCropViewController: UIViewController {
 
                 guard let exportUrl = session.outputURL else { return }
                 let player = AVPlayer(url: exportUrl)
-                let vc = AVPlayerViewController()
-                vc.player = player
-                vc.player?.play()
-                
-                strongSelf.navigationController?.pushViewController(vc, animated: true)
+                let playerVC = AVPlayerViewController()
+                playerVC.player = player
+                playerVC.player?.play()
+
+                strongSelf.navigationController?.pushViewController(playerVC, animated: true)
             }
         }
     }
@@ -285,15 +289,14 @@ extension VideoCropViewController {
     }
 }
 
-
-    //MARK: TrimmerViewDelegate
+    // MARK: TrimmerViewDelegate
 extension VideoCropViewController: TrimmerViewDelegate {
     func positionBarStoppedMoving(_ playerTime: CMTime) {
         guard let player = playerView?.player else { return }
-        player.seek(to:playerTime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
+        player.seek(to: playerTime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
         startPlaybackTimeChecker()
     }
-    
+
     func didChangePositionBar(_ playerTime: CMTime) {
         guard let player = playerView?.player else { return }
         stopPlaybackTimeChecker()

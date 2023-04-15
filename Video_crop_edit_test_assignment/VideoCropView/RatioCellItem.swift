@@ -14,7 +14,7 @@ enum RatioCellItem: String, CaseIterable {
     case fiveToFour = "5:4"
     case sixteenToNine = "16:9"
     case fullscreen = "FullScreen"
-    
+
     var imageName: String {
            switch self {
            case .freeSize:

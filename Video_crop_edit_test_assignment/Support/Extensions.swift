@@ -19,4 +19,3 @@ extension UIImage.SymbolConfiguration {
         return UIImage.SymbolConfiguration(pointSize: 25, weight: .regular, scale: .large)
     }
 }
-

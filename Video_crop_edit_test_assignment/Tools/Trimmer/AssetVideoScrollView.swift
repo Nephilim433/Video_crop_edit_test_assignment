@@ -101,7 +101,8 @@ class AssetVideoScrollView: UIScrollView {
             let viewEndX = CGFloat(index) * size.width + size.width
 
             if viewEndX > contentView.frame.width {
-                thumbnailView.frame.size = CGSize(width: size.width + (contentView.frame.width - viewEndX), height: size.height)
+                thumbnailView.frame.size = CGSize(width: size.width + (contentView.frame.width - viewEndX),
+                                                  height: size.height)
                 thumbnailView.contentMode = .scaleAspectFill
             } else {
                 thumbnailView.frame.size = size
@@ -125,11 +126,15 @@ class AssetVideoScrollView: UIScrollView {
         return timesForThumbnails
     }
 
-    private func generateImages(for asset: AVAsset, at times: [NSValue], with maximumSize: CGSize, visibleThumnails: Int) {
+    private func generateImages(for asset: AVAsset,
+                                at times: [NSValue],
+                                with maximumSize: CGSize,
+                                visibleThumnails: Int) {
         generator = AVAssetImageGenerator(asset: asset)
         generator?.appliesPreferredTrackTransform = true
 
-        let scaledSize = CGSize(width: maximumSize.width * UIScreen.main.scale, height: maximumSize.height * UIScreen.main.scale)
+        let scaledSize = CGSize(width: maximumSize.width * UIScreen.main.scale,
+                                height: maximumSize.height * UIScreen.main.scale)
         generator?.maximumSize = scaledSize
         var count = 0
 
@@ -150,8 +155,8 @@ class AssetVideoScrollView: UIScrollView {
     }
 
     private func displayFirstImage(_ cgImage: CGImage, visibleThumbnails: Int) {
-        for i in 0...visibleThumbnails {
-            displayImage(cgImage, at: i)
+        for index in 0...visibleThumbnails {
+            displayImage(cgImage, at: index)
         }
     }
 

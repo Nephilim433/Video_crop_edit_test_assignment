@@ -5,12 +5,9 @@
 //  Created by Yaroslav Vedmedenko on 06.04.2023.
 //
 
-
 import Foundation
 import AVFoundation
 import UIKit
-
-
 
 class CropCommand: NSObject, VideoEditorCommandProtocol {
     weak var videoData: VideoEditorData?
@@ -25,13 +22,16 @@ class CropCommand: NSObject, VideoEditorCommandProtocol {
 
     func execute() {
         let inputSize = videoData?.videoSize
-        
+
         let widthScaleFactor = outputSize.width / inputSize!.width
         let heightScaleFactor = outputSize.height / inputSize!.height
         let scaleFactor = min(widthScaleFactor, heightScaleFactor)
 
-        cropFrame = CGRect(x: cropFrame.origin.x / scaleFactor, y: cropFrame.origin.y / scaleFactor, width: cropFrame.size.width / scaleFactor, height: cropFrame.size.height / scaleFactor)
-        
+        cropFrame = CGRect(x: cropFrame.origin.x / scaleFactor,
+                           y: cropFrame.origin.y / scaleFactor,
+                           width: cropFrame.size.width / scaleFactor,
+                           height: cropFrame.size.height / scaleFactor)
+
         var instruction: AVMutableVideoCompositionInstruction?
         var layerInstruction: AVMutableVideoCompositionLayerInstruction?
         let duration = videoData?.composition?.duration
@@ -41,22 +41,27 @@ class CropCommand: NSObject, VideoEditorCommandProtocol {
             if let videoCompositionTrack = videoData?.videoCompositionTrack {
                 layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoCompositionTrack)
                 layerInstruction?.setCropRectangle(cropFrame, at: CMTime.zero)
-                let t1 = CGAffineTransform(translationX: -1 * cropFrame.origin.x, y: -1 * cropFrame.origin.y)
-                layerInstruction?.setTransform(t1, at: CMTime.zero)
+                let transform1 = CGAffineTransform(translationX: -1 * cropFrame.origin.x, y: -1 * cropFrame.origin.y)
+                layerInstruction?.setTransform(transform1, at: CMTime.zero)
             }
         } else {
             instruction = videoData?.videoComposition?.instructions.last as? AVMutableVideoCompositionInstruction
             layerInstruction = instruction?.layerInstructions.last as? AVMutableVideoCompositionLayerInstruction
             if let duration = duration {
                 var start = CGAffineTransform()
-                let success = layerInstruction?.getTransformRamp(for: duration, start: &start, end: nil, timeRange: nil) ?? false
+                let success = layerInstruction?.getTransformRamp(for: duration,
+                                                                 start: &start,
+                                                                 end: nil,
+                                                                 timeRange: nil) ?? false
                 if !success {
                     layerInstruction?.setCropRectangle(cropFrame, at: CMTime.zero)
-                    let t1 = CGAffineTransform(translationX: -1 * cropFrame.origin.x, y:  -1 * cropFrame.origin.y)
-                    layerInstruction?.setTransform(t1, at: CMTime.zero)
+                    let transform1 = CGAffineTransform(translationX: -1 * cropFrame.origin.x,
+                                               y: -1 * cropFrame.origin.y)
+                    layerInstruction?.setTransform(transform1, at: CMTime.zero)
                 } else {
-                    let t1 = CGAffineTransform(translationX: -1 * cropFrame.origin.x, y:  -1 * cropFrame.origin.y)
-                    let newTransform = start.concatenating(t1)
+                    let transform1 = CGAffineTransform(translationX: -1 * cropFrame.origin.x,
+                                               y: -1 * cropFrame.origin.y)
+                    let newTransform = start.concatenating(transform1)
                     layerInstruction?.setTransform(newTransform, at: CMTime.zero)
                 }
             }
@@ -70,8 +75,6 @@ class CropCommand: NSObject, VideoEditorCommandProtocol {
             videoData?.videoComposition?.instructions = [instruction]
         }
 
-
     }
 
 }
-

@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapBundleButton), for: .touchUpInside)
         return button
     }()
-    
+
     lazy var webButton: UIButton = {
         let button = UIButton()
         button.setTitle("By hardcoded URL", for: .normal)
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         spinner.hidesWhenStopped = true
         return spinner
     }()
-    
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,17 +48,17 @@ class ViewController: UIViewController {
         // Set up the text field
         configureUI()
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         spinner.stopAnimating()
         self.view.isUserInteractionEnabled = true
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         spinner.stopAnimating()
         self.view.isUserInteractionEnabled = true
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         urlTextField.frame = CGRect(x: 0, y: 100, width: self.view.frame.maxX-50, height: 40)
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         webButton.center.x = view.center.x
         spinner.center = view.center
     }
-    
+
     // MARK: - UI
     private func configureUI() {
         urlTextField.placeholder = "Paste video URL here"
@@ -82,34 +82,32 @@ class ViewController: UIViewController {
         spinner.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(spinner)
     }
-    
-    //MARK: - Actions
+
+    // MARK: - Actions
     @objc
     func didTapBundleButton() {
         spinner.isHidden = false
         spinner.startAnimating()
         self.view.isUserInteractionEnabled = false
         let bundleURL = Bundle.main.url(forResource: "video4", withExtension: "mp4")!
-        let vc = VideoCropViewController(videoURL: bundleURL)
-        navigationController?.pushViewController(vc, animated: true)
+        let videoCropVC = VideoCropViewController(videoURL: bundleURL)
+        navigationController?.pushViewController(videoCropVC, animated: true)
     }
-    
+
     @objc
     func didTapWebButton() {
         spinner.isHidden = false
         spinner.startAnimating()
         self.view.isUserInteractionEnabled = false
         let webUrl = URL(string: "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4")!
-        let vc = VideoCropViewController(videoURL: webUrl)
-        navigationController?.pushViewController(vc, animated: true)
+        let videoCropVC = VideoCropViewController(videoURL: webUrl)
+        navigationController?.pushViewController(videoCropVC, animated: true)
     }
-    
 
-    
 }
 
 extension ViewController {
-    //check if video is playable 
+    // check if video is playable 
     private func checkVideo(url: URL, complition: @escaping (Bool) -> Void) {
         let asset = AVURLAsset(url: url)
         let keys = ["playable"]
@@ -131,18 +129,19 @@ extension ViewController {
         }
     }
     private func showNotValidAlert() {
-        let alert = UIAlertController(title: "Invalid URL", message: "Please enter a valid URL.", preferredStyle: .alert)
+        let message = "Please enter a valid URL."
+        let alert = UIAlertController(title: "Invalid URL", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
 }
 
 extension ViewController: UITextFieldDelegate {
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Dismiss the keyboard
         textField.resignFirstResponder()
-        
+
         // Handle the video URL
         guard let text = textField.text else { return true }
         if let url = URL(string: text), url.isFileURL || url.scheme == "http" || url.scheme == "https" {
@@ -156,8 +155,8 @@ extension ViewController: UITextFieldDelegate {
                     self.spinner.isHidden = true
                     self.view.isUserInteractionEnabled = true
                     if isVideo {
-                        let vc = VideoCropViewController(videoURL: url)
-                        self.navigationController?.pushViewController(vc, animated: true)
+                        let videoCropVC = VideoCropViewController(videoURL: url)
+                        self.navigationController?.pushViewController(videoCropVC, animated: true)
                     } else {
                         self.showNotValidAlert()
                     }
@@ -168,10 +167,8 @@ extension ViewController: UITextFieldDelegate {
             print("not valid")
             showNotValidAlert()
         }
-        
+
         return true
     }
-    
+
 }
-
-
